@@ -38,6 +38,13 @@ function clearField(...fields) {
 	fields.forEach((field) => (field.value = ''));
 }
 
+// small-function to add user quick (Prego Alfredo o Fabio 🤣😘😎😜)
+function autoFillPath(input) {
+	const paths = ['../img/new-team-member-01.jpg', '../img/new-team-member-02.jpg', '../img/new-team-member-03.jpg', '../img/new-team-member-04.jpg'];
+	const p = paths[Math.floor(Math.random() * 3)];
+	input.value = p;
+}
+
 function addUser() {
 	const name = nameField.value;
 	const role = roleField.value;
@@ -52,4 +59,5 @@ function addUser() {
 
 showUser(data);
 clearField(nameField, roleField, imageField);
+imageField.addEventListener('click', () => autoFillPath(imageField));
 addButton.addEventListener('click', () => addUser());
