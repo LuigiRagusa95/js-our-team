@@ -41,7 +41,7 @@ function clearField(...fields) {
 // small-function to add user quick (Prego Alfredo o Fabio 🤣😘😎😜)
 function autoFillPath(input) {
 	const paths = ['../img/new-team-member-01.jpg', '../img/new-team-member-02.jpg', '../img/new-team-member-03.jpg', '../img/new-team-member-04.jpg'];
-	const p = paths[Math.floor(Math.random() * 3)];
+	const p = paths[Math.floor(Math.random() * 4)];
 	input.value = p;
 }
 
@@ -59,5 +59,5 @@ function addUser() {
 
 showUser(data);
 clearField(nameField, roleField, imageField);
-imageField.addEventListener('click', () => autoFillPath(imageField));
+imageField.addEventListener('focus', () => autoFillPath(imageField));
 addButton.addEventListener('click', () => addUser());
