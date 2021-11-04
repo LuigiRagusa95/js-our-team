@@ -33,5 +33,23 @@ function showUser(teamData) {
 		teamContainer.insertAdjacentHTML('beforeend', userTemplate(user.name, user.role, user.image));
 	}
 }
+
+function clearField(...fields) {
+	fields.forEach((field) => (field.value = ''));
+}
+
+function addUser() {
+	const name = nameField.value;
+	const role = roleField.value;
+	const image = imageField.value;
+	if (name !== '' && role !== '' && image !== '') {
+		teamContainer.innerHTML = '';
+		data.push({ name: name, role: role, image: image });
+		showUser(data);
+		clearField(nameField, roleField, imageField);
+	} else clearField(nameField, roleField, imageField);
+}
+
 showUser(data);
-console.log('js');
+clearField(nameField, roleField, imageField);
+addButton.addEventListener('click', () => addUser());
